@@ -148,16 +148,24 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  const nameDate = document.createElement('div');
   const name = document.createElement('p');
   name.innerHTML = review.name;
-  li.appendChild(name);
+  name.style.cssText = 'float: left; color: white; font-weight: bold; font-size: 18px;';
+  nameDate.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
-  li.appendChild(date);
+  date.style.cssText = 'float: right; color:grey; font-weight: 200; font-size: 14px';
+  nameDate.appendChild(date);
 
+  nameDate.style.cssText = 'width: 100%; min-height: 50px; background-color: #333; padding: 10px 8px 0';
+  li.appendChild(nameDate)
+  
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
+  rating.style.cssText = 'color:white; background-color:orange;width:90px; text-align: center;'+
+  'text-transform: uppercase; font-weight: bold; padding:5px 10px; border-radius: 3px; margin-top:20px;';
   li.appendChild(rating);
 
   const comments = document.createElement('p');
