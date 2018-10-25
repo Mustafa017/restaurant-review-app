@@ -150,7 +150,7 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    return (`build/images/${restaurant.photograph}`);
   }
 
   /**
@@ -179,3 +179,11 @@ class DBHelper {
 
 }
 
+// Register service worker
+if(!navigator.serviceWorker){
+  console.log('Service Worker not supported');
+}else{
+  navigator.serviceWorker.register('../serviceWorker.js')
+  .then(reg => console.log('service worker Registered'))
+  .catch(err => console.log(`service failed: ${err}`));
+}
