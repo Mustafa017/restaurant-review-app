@@ -280,6 +280,13 @@ nav h1 a {
     padding: 20px;
   }
 }
+@media screen and (min-width: 600px) and (max-width: 720px) {
+  #reviews-container {
+    padding-left: 10px;
+    padding-right: 15px;
+  }
+}
+
 @media screen and (min-width: 600px){
   .filter-options { 
     display: flex;
