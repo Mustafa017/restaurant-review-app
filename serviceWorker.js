@@ -1,4 +1,4 @@
-const cache_Name = 'version_5';
+const cache_Name = 'version_9';
 
 const cache_Items = [
 	'./',
@@ -54,7 +54,16 @@ self.addEventListener('fetch', (event) => {
 			if(response){
 				return response;
 			}
-			return fetch(event.request);
+			return fetch(event.request)
+			.then(res => {
+			 	// Add response to cache
+			 	let resCache = res.clone();
+			 	caches.open(cache_Name)
+			 	.then(cache => {
+			 		cache.put(event.request, resCache);
+			 	})
+			 	return res;
+			 })
 		})
 	)
 });
