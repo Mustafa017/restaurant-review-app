@@ -20,7 +20,7 @@
       <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
+    <ul role="navigation" id="breadcrumb" >
       <li><a href="/">Home</a></li>
     </ul>
     <!-- End breadcrumb -->
@@ -31,14 +31,14 @@
   <!-- Beginning main -->
   <main id="maincontent">
     <!-- Beginning map -->
-    <section id="map-container">
+    <section role="application" id="map-container">
       <div id="map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-      <h1 id="restaurant-name" tabindex="-1"></h1>
-      <img id="restaurant-img">
+      <h2 role="heading" id="restaurant-name" tabindex="-1"></h2>
+      <img role="image" id="restaurant-img">
       <p id="restaurant-cuisine" tabindex="-1"></p>
       <p id="restaurant-address"tabindex="-1"></p>
       <table id="restaurant-hours"></table>
@@ -66,7 +66,15 @@
   <!-- Google Maps -->
  <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script> -->
   <!-- End scripts -->
-
+  <script type="text/javascript">
+    if(!navigator.serviceWorker){
+      console.log('Service Worker not supported');
+    }else{
+      navigator.serviceWorker.register('../serviceWorker.js')
+      .then(reg => console.log('service worker Registered'))
+      .catch(err => console.log(`service failed: ${err}`));
+    }
+  </script>
 </body>
 
 </html>
